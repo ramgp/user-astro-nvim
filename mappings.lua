@@ -20,9 +20,28 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<leader>y"] = {"\"_dd", desc = "Real delete"}, 
+    J = { "mzJ`z", desc = "Join lines (keep cursor)" },
+    U = { "<C-r>", desc = "Redo" },
+    H = {
+      function() require("astronvim.utils.buffer").nav(-(vim.v.count > 0 and vim.v.count or 1)) end,
+      desc = "Previous buffer",
+    },
+    L = {
+      function() require("astronvim.utils.buffer").nav(vim.v.count > 0 and vim.v.count or 1) end,
+      desc = "Next buffer",
+    },   ["<leader>s"] = { "<cmd>w<cr>", desc = "Save" },
+  },
+  v = {
+    ["<leader>y"] = {"\"_d", desc = "Real delete"}, 
+    ["<leader>v"] = {"\"_dP", desc = "Paste w/o copy"}, 
   },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
+  },
+  i = {
+    ["kj"] = {"<esc>"}, 
+    ["kk"] = {"<esc>"}, 
   },
 }
